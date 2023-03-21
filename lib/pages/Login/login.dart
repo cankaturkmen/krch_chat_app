@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/button_list.dart';
 import 'package:flutter_signin_button/button_view.dart';
+import 'package:go_router/go_router.dart';
 import 'package:krch_chat_app/firebase_services/firebase_auth.dart';
+import 'package:krch_chat_app/shared/notifiers/loginInfo.dart';
+import 'package:krch_chat_app/shared/shared.dart';
 import 'package:krch_chat_app/widgets/input_field.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+import '../../shared/utils/enums.dart';
+import '../../shared/utils/snackbars.dart';
 
+class LoginPage extends StatefulWidget {
+  LoginPage({super.key, required, required this.loginInfo});
+  LoginInfo loginInfo;
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
@@ -15,6 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     GlobalKey formkey = GlobalKey();
+    final colors = context.theme.colorScheme;
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     TextEditingController usernameController = TextEditingController();
@@ -27,7 +34,6 @@ class _LoginPageState extends State<LoginPage> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Card(
-              color: Colors.blue,
               elevation: 6,
               child: Form(
                   key: formkey,
@@ -91,7 +97,20 @@ class _LoginPageState extends State<LoginPage> {
                               Buttons.Google,
                               text: "Sign up with Google",
                               onPressed: () async {
-                                await FirebaseAuth().signInWithGoogle();
+                                await widget.loginInfo.login().then((value) {
+                                  print(value.boolResult);
+                                  if (value.boolResult == true) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      snacbars(MessageType.success, colors),
+                                    );
+                                    context.goNamed('home');
+                                  } else {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      snacbars(MessageType.error, colors,
+                                          text: value.error!.message),
+                                    );
+                                  }
+                                });
                               },
                             )
                           ],

@@ -67,7 +67,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: '655431803823',
     projectId: 'krch-chat-app',
     storageBucket: 'krch-chat-app.appspot.com',
-    iosClientId: '655431803823-2ir2540sfklnvtre8mmclortgln40p64.apps.googleusercontent.com',
     iosBundleId: 'com.example.krchChatApp',
   );
 
@@ -77,7 +76,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: '655431803823',
     projectId: 'krch-chat-app',
     storageBucket: 'krch-chat-app.appspot.com',
-    iosClientId: '655431803823-2ir2540sfklnvtre8mmclortgln40p64.apps.googleusercontent.com',
     iosBundleId: 'com.example.krchChatApp',
   );
 }

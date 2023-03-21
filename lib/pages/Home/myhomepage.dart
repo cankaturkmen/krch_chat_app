@@ -2,10 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:krch_chat_app/firebase_services/firebase_get.dart';
 import 'package:krch_chat_app/models/users.dart';
+import 'package:krch_chat_app/shared/notifiers/loginInfo.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
+  MyHomePage({super.key, required this.title, required this.loginInfo});
+  LoginInfo loginInfo;
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
   // how it looks.

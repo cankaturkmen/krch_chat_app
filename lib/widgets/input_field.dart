@@ -60,9 +60,6 @@ class InputField extends StatelessWidget {
       decoration: InputDecoration(
         prefixIcon: prefixIcon,
         //todo focus color
-        iconColor: Colors.blue,
-        hoverColor: Colors.amber,
-        focusColor: Colors.blueAccent,
 
         icon: Icon(icon),
         hintText: hintText,
@@ -70,7 +67,6 @@ class InputField extends StatelessWidget {
         labelText: hintText,
         hintStyle: hintStyle,
         labelStyle: labelStyle,
-        border: const OutlineInputBorder(),
       ),
       validator: validator,
     );

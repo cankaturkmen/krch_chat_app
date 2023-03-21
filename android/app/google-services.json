@@ -12,12 +12,7 @@
           "package_name": "com.example.krch_chat_app"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "655431803823-h5pfnjmtmtabj1lp0gk6ssls4obep10b.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyCbWIQdAJVA6ROfNVtl76JbNgbnUArUeto"
@@ -25,12 +20,7 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "655431803823-h5pfnjmtmtabj1lp0gk6ssls4obep10b.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
