@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:krch_chat_app/models/firebase_resutl.dart';
 
 import '../pages/Home/myhomepage.dart';
 import '../pages/Login/login.dart';
@@ -55,27 +56,25 @@ class AppRouter {
       // if (state.location == "/forgetPassword") {
       //   return null;
       // }
-      // if (!loginInfo.initialized && state.location != "/login") {
-      //   bool result = false;
-      //   if (state.location == "/patientLogin") {
-      //     return '/patientLogin';
-      //   } else if (state.location == "/patientProfile") {
-      //     bool result = await loginInfo.patientAutoLogin();
-      //     if (result) {
-      //       return '/patientProfile';
-      //     }
-      //     return '/patientLogin';
-      //   } else if (!loginInfo.loggingOut) {
-      //     result = await loginInfo.autoLogin(context);
-      //   }
+      if (!loginInfo.initialized) {
+        bool result = false;
+        await loginInfo.autoLogin();
+        print(loginInfo.initialized);
+        if (loginInfo.initialized) {
+          return '/home';
+        }
+        // else if (!loginInfo.loggingOut) {
+        //   result = await loginInfo.autoLogin(context);
+        // }
 
-      //   if (!result) {
-      //     return '/login';
-      //   } else {
-      //     return '/home';
-      //   }
-      // } else if (loginInfo.initialized && state.location == "/login") {
-      //   return '/home';
+        //   if (!result) {
+        //     return '/login';
+        //   } else {
+        //     return '/home';
+        //   }
+      } else if (loginInfo.initialized && state.location == "/login") {
+        return '/home';
+      }
       // } else if (!loginInfo.loggedIn && loginInfo.initialized) {
       //   return '/login';
       // } else if (!loginInfo.userSelected && state.location == "/profile") {

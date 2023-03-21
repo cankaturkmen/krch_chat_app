@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:krch_chat_app/firebase_services/firebase_service.dart';
+import 'package:krch_chat_app/models/firebase_resutl.dart';
 
 class FirebaseAuthService extends FirebaseService {
   Future<String> signInWithGoogle() async {
@@ -48,13 +49,23 @@ class FirebaseAuthService extends FirebaseService {
     // Once signed in, return the UserCredential
   }
 
-  Future autoSignIn() async {
-    await firebaseAuth.authStateChanges().listen((User? user) {
+  Future<String?> autoSignIn() async {
+    String? result;
+    firebaseAuth.authStateChanges().listen((User? user) async {
       if (user == null) {
-        print('User is currently signed out!');
+        await GoogleSignIn().signInSilently();
+        if (firebaseAuth.currentUser != null) {
+          result = firebaseAuth.currentUser!.uid;
+        }
       } else {
-        print('User is signed in!');
+        result = user.uid;
       }
     });
+
+    return result;
+  }
+
+  Future<void> logOut() async {
+    firebaseAuth.signOut();
   }
 }

@@ -46,9 +46,9 @@ class AdaptiveNavigation extends StatelessWidget {
                           icon: const Icon(Icons.exit_to_app),
                           onPressed: () async {
                             //TODO
-                            // await loginInfo.logout().then((value) {
-                            //   context.go('/login');
-                            // });
+                            await loginInfo.logout().then((value) {
+                              context.goNamed('login');
+                            });
                           },
                           label: const Text("Log out"),
                         ),
