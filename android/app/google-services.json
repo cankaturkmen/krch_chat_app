@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "655431803823",
+    "project_id": "krch-chat-app",
+    "storage_bucket": "krch-chat-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655431803823:android:d4339166c5e551e1dcc55a",
+        "android_client_info": {
+          "package_name": "com.example.krch_chat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "655431803823-h5pfnjmtmtabj1lp0gk6ssls4obep10b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbWIQdAJVA6ROfNVtl76JbNgbnUArUeto"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "655431803823-h5pfnjmtmtabj1lp0gk6ssls4obep10b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
